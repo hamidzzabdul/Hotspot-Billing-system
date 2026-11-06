@@ -1,0 +1,897 @@
+@media (min-width: 1600px) {
+  .page-content {
+    padding-top: 44px;
+  }
+  .analytics-grid {
+    grid-template-columns: 2fr 1fr;
+  }
+  .bar-chart {
+    height: 240px;
+  }
+}
+@media (max-width: 1180px) {
+  .sidebar {
+    width: 205px;
+    padding: 0 12px;
+  }
+  .workspace-main {
+    margin-left: 205px;
+  }
+  .page-content {
+    padding: 28px 24px;
+  }
+  .topbar {
+    padding: 0 24px;
+  }
+  .page-heading {
+    align-items: flex-start;
+  }
+  .heading-actions .button {
+    font-size: 10px;
+    padding: 9px 11px;
+  }
+  .analytics-grid {
+    grid-template-columns: 1.6fr 1fr;
+    gap: 16px;
+  }
+  .operations-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .network-panel {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+  .network-panel > .panel-heading {
+    grid-column: 1/-1;
+  }
+  .network-health {
+    margin-bottom: 15px;
+  }
+  .health-list {
+    grid-row: 2/4;
+    grid-column: 2;
+  }
+  .network-panel > .button {
+    max-width: 250px;
+  }
+  .stat-card {
+    padding: 15px;
+  }
+  .stats-grid {
+    gap: 12px;
+  }
+  .stat-card > strong {
+    font-size: 23px;
+  }
+  .customer-plan {
+    padding: 25px 17px 19px;
+  }
+  .customer-plan-price {
+    font-size: 38px;
+  }
+  .customer-plan h3 {
+    font-size: 15px;
+  }
+  .plan-management-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .auth-story {
+    padding: 40px 35px;
+  }
+  .auth-main {
+    padding: 35px;
+  }
+  .customer-header nav {
+    gap: 23px;
+    margin-left: 0;
+  }
+}
+@media (max-width: 900px) {
+  .sidebar {
+    width: 190px;
+  }
+  .workspace-main {
+    margin-left: 190px;
+  }
+  .workspace-selector strong {
+    font-size: 10px;
+  }
+  .nav-item {
+    font-size: 11px;
+    padding-left: 11px;
+  }
+  .sidebar-brand {
+    padding-left: 10px;
+  }
+  .sidebar-user strong {
+    font-size: 9px;
+  }
+  .page-heading {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .page-heading h1 {
+    font-size: 26px;
+  }
+  .analytics-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .plans-breakdown {
+    min-height: 220px;
+  }
+  .plan-legend {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .settings-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .settings-nav {
+    flex-direction: row;
+    overflow: auto;
+    gap: 5px;
+  }
+  .settings-nav > * {
+    white-space: nowrap;
+    font-size: 10px;
+    padding: 10px;
+  }
+  .router-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .customer-plan-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 28px 18px;
+  }
+  .customer-plan {
+    padding: 25px;
+  }
+  .customer-plan h3 {
+    font-size: 19px;
+  }
+  .customer-plan > p {
+    min-height: 20px;
+  }
+  .portal-hero h1 {
+    font-size: 38px;
+    letter-spacing: -1.5px;
+  }
+  .portal-visual {
+    transform: scale(0.8);
+    margin-right: -15px;
+  }
+  .portal-hero {
+    grid-template-columns: 1.3fr 0.8fr;
+  }
+  .floating-card {
+    white-space: nowrap;
+  }
+  .hero-trust {
+    gap: 15px;
+  }
+  .auth-story h1 {
+    font-size: 43px;
+  }
+  .auth-illustration {
+    width: 230px;
+  }
+  .auth-story {
+    padding: 35px 28px;
+  }
+  .auth-story p {
+    font-size: 12px;
+  }
+  .auth-main {
+    padding: 30px;
+  }
+  .credit-intro {
+    flex-wrap: wrap;
+  }
+  .access-card {
+    flex-wrap: wrap;
+  }
+  .access-card > .button {
+    margin-left: auto;
+  }
+  .loan-card {
+    flex-wrap: wrap;
+  }
+  .customer-header {
+    padding: 0 28px;
+  }
+  .customer-main {
+    padding: 0 28px;
+  }
+  .customer-header nav {
+    gap: 20px;
+  }
+  .customer-header nav > a,
+  .customer-header nav > button {
+    font-size: 11px;
+  }
+  .customer-greeting {
+    display: none;
+  }
+  .customer-footer {
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+}
+@media (max-width: 700px) {
+  .mobile-only {
+    display: inline-flex !important;
+  }
+  .sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.2s;
+    width: 235px;
+  }
+  .sidebar-open {
+    transform: translateX(0);
+  }
+  .sidebar-brand {
+    justify-content: space-between;
+  }
+  .sidebar-scrim {
+    position: fixed;
+    inset: 0;
+    background: #1f2e3845;
+    z-index: 25;
+  }
+  .workspace-main {
+    margin-left: 0;
+  }
+  .topbar {
+    height: 60px;
+    padding: 0 17px;
+  }
+  .topbar > div {
+    gap: 10px;
+  }
+  .timezone {
+    display: none;
+  }
+  .page-content {
+    padding: 25px 18px;
+  }
+  .page-heading {
+    margin-bottom: 25px;
+  }
+  .page-heading h1 {
+    font-size: 28px;
+  }
+  .page-heading > div > p:last-child {
+    font-size: 11px;
+  }
+  .heading-actions {
+    flex-wrap: wrap;
+  }
+  .heading-actions .button {
+    font-size: 11px;
+  }
+  .overview-toolbar {
+    gap: 7px;
+  }
+  .section-tabs {
+    gap: 17px;
+  }
+  .section-tabs > * {
+    font-size: 10px;
+  }
+  .date-select {
+    padding: 7px;
+  }
+  .date-select select {
+    font-size: 9px;
+  }
+  .toolbar-right {
+    gap: 3px;
+  }
+  .stats-grid {
+    gap: 12px;
+  }
+  .stat-card {
+    padding: 17px;
+  }
+  .stat-card > strong {
+    font-size: 26px;
+  }
+  .stat-card > div > span:first-child {
+    font-size: 10px;
+  }
+  .stat-card > p {
+    font-size: 9px;
+  }
+  .panel-heading {
+    padding: 20px;
+  }
+  .panel-heading p {
+    font-size: 10px;
+  }
+  .analytics-grid {
+    gap: 18px;
+    margin-bottom: 18px;
+  }
+  .operations-grid {
+    margin-bottom: 18px;
+  }
+  .network-panel {
+    display: block;
+  }
+  .network-health {
+    margin: 5px 20px 25px;
+  }
+  .health-list {
+    margin: 0 20px 20px;
+  }
+  .network-panel > .button {
+    max-width: none;
+    width: calc(100% - 40px);
+    margin: 0 20px 20px;
+  }
+  .quick-actions {
+    align-items: flex-start;
+    padding: 20px;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .quick-actions .text-link {
+    margin-left: 55px;
+  }
+  .workspace-footer {
+    padding: 0 18px 20px;
+    font-size: 8px;
+  }
+  .table-toolbar {
+    padding: 14px;
+    flex-wrap: wrap;
+  }
+  .search-field {
+    width: 100%;
+    flex: 1;
+    min-width: 170px;
+  }
+  .record-count {
+    width: 100%;
+    font-size: 9px;
+  }
+  .filter-select {
+    font-size: 10px;
+    padding: 9px;
+  }
+  .pagination {
+    padding: 14px;
+  }
+  .plan-management-grid {
+    gap: 15px;
+  }
+  .plan-management-card {
+    padding: 20px;
+  }
+  .plan-price {
+    font-size: 26px;
+  }
+  .plan-price > span {
+    display: block;
+    font-size: 10px;
+    margin: 8px 0 0;
+  }
+  .plan-management-card h2 {
+    font-size: 16px;
+  }
+  .add-plan-card {
+    padding: 15px;
+    text-align: center;
+  }
+  .add-plan-card > p {
+    font-size: 10px;
+  }
+  .settings-panel {
+    padding: 20px;
+  }
+  .settings-nav {
+    margin-bottom: -10px;
+  }
+  .settings-layout {
+    gap: 25px;
+  }
+  .auth-page {
+    grid-template-columns: 1fr;
+  }
+  .auth-story {
+    display: none;
+  }
+  .auth-main {
+    min-height: 100dvh;
+    padding: 28px;
+  }
+  .auth-mobile-brand {
+    display: block;
+  }
+  .auth-back {
+    font-size: 10px;
+    margin-top: -25px;
+  }
+  .auth-form-wrap {
+    padding: 65px 0 45px;
+  }
+  .auth-form-wrap h2 {
+    font-size: 31px;
+  }
+  .customer-header {
+    height: auto;
+    min-height: 83px;
+    padding: 21px 22px 15px;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .customer-header .brand {
+    font-size: 28px;
+  }
+  .customer-header nav {
+    order: 3;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 4px;
+    padding-top: 15px;
+    border-top: 1px solid #e5ecf0;
+  }
+  .customer-header nav > a,
+  .customer-header nav > button {
+    font-size: 11px;
+  }
+  .customer-main {
+    padding: 0 22px;
+  }
+  .portal-hero {
+    display: block;
+    padding: 45px 0 35px;
+    min-height: 0;
+  }
+  .portal-hero h1 {
+    font-size: 42px;
+    letter-spacing: -1.7px;
+    margin: 22px 0 20px;
+  }
+  .portal-hero p {
+    font-size: 12px;
+    max-width: 310px;
+  }
+  .portal-visual {
+    display: none;
+  }
+  .portal-kicker {
+    font-size: 8px;
+    letter-spacing: 1.2px;
+  }
+  .hero-trust {
+    gap: 17px;
+    margin-top: 25px;
+  }
+  .hero-trust > span {
+    font-size: 9px;
+  }
+  .customer-plans {
+    padding-top: 34px;
+  }
+  .plans-section-heading {
+    margin-bottom: 35px;
+    display: block;
+  }
+  .plans-section-heading h2 {
+    font-size: 25px;
+  }
+  .plans-section-heading > span {
+    display: block;
+    margin-top: 13px;
+    font-size: 9px;
+  }
+  .customer-plan-grid {
+    gap: 26px 13px;
+  }
+  .customer-plan {
+    padding: 25px 17px 18px;
+  }
+  .customer-plan h3 {
+    font-size: 17px;
+    line-height: 1.5;
+    margin-top: 15px;
+  }
+  .customer-plan > p {
+    font-size: 10px;
+    min-height: 38px;
+    line-height: 1.8;
+  }
+  .customer-plan-price {
+    font-size: 37px;
+    flex-wrap: wrap;
+    row-gap: 9px;
+    margin-top: 19px;
+  }
+  .customer-plan-price small {
+    font-size: 10px;
+  }
+  .customer-plan-price > span {
+    font-size: 9px;
+  }
+  .popular-ribbon {
+    font-size: 6px;
+    padding: 6px 8px;
+    letter-spacing: 0.6px;
+  }
+  .customer-plan .plan-features {
+    gap: 13px;
+    padding-top: 18px;
+    margin-bottom: 22px;
+  }
+  .customer-plan .plan-features > span {
+    font-size: 9px;
+    gap: 6px;
+  }
+  .customer-plan .plan-features svg {
+    width: 12px;
+  }
+  .customer-plan .button {
+    font-size: 10px;
+    gap: 7px;
+    padding: 10px;
+  }
+  .customer-plan .button svg {
+    width: 14px;
+  }
+  .plan-duration {
+    font-size: 9px;
+  }
+  .plan-duration svg {
+    width: 14px;
+  }
+  .portal-extras {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-bottom: 35px;
+  }
+  .portal-extras > button {
+    padding: 19px;
+  }
+  .how-to-connect {
+    padding: 35px 0 40px;
+  }
+  .how-to-connect h2 {
+    font-size: 23px;
+  }
+  .how-to-connect > div {
+    gap: 17px;
+  }
+  .how-to-connect article p {
+    font-size: 10px;
+  }
+  .how-to-connect h3 {
+    font-size: 11px;
+  }
+  .how-to-connect article > svg {
+    width: 20px;
+  }
+  .step-number {
+    font-size: 8px;
+    left: 0;
+    top: -12px;
+  }
+  .customer-footer {
+    padding: 25px 22px;
+    align-items: flex-start;
+  }
+  .customer-footer p {
+    font-size: 8px;
+    line-height: 1.8;
+    max-width: 150px;
+  }
+  .customer-footer > div:last-child {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-end;
+  }
+  .customer-footer > div:last-child > a {
+    font-size: 8px;
+  }
+  .customer-account-heading {
+    padding: 35px 0 26px;
+  }
+  .customer-account-heading h1 {
+    font-size: 31px;
+  }
+  .customer-account-heading > p:last-child {
+    font-size: 11px;
+    line-height: 1.8;
+  }
+  .account-summary {
+    padding: 18px;
+    gap: 10px;
+  }
+  .account-summary strong {
+    font-size: 15px;
+  }
+  .account-summary small {
+    font-size: 9px;
+  }
+  .summary-symbol {
+    width: 35px;
+    height: 35px;
+    border-radius: 8px;
+  }
+  .summary-symbol svg {
+    width: 19px;
+  }
+  .account-summary > div {
+    gap: 10px;
+  }
+  .account-summary .button {
+    font-size: 10px;
+    min-height: 35px;
+    padding: 9px;
+  }
+  .account-tabs {
+    gap: 22px;
+    margin-top: 27px;
+  }
+  .account-tabs button {
+    font-size: 11px;
+  }
+  .access-card {
+    padding: 18px;
+    gap: 14px;
+  }
+  .access-icon {
+    padding: 11px;
+  }
+  .access-icon svg {
+    width: 20px;
+  }
+  .access-details h3 {
+    font-size: 14px;
+  }
+  .access-details p {
+    font-size: 9px;
+  }
+  .access-details small {
+    font-size: 9px;
+  }
+  .access-card > .badge {
+    margin-left: 53px;
+  }
+  .access-card > .button {
+    font-size: 11px;
+    min-height: 35px;
+  }
+  .account-footer {
+    flex-direction: column;
+    margin-bottom: 35px;
+    gap: 16px;
+  }
+  .credit-intro {
+    padding: 20px;
+    gap: 15px;
+  }
+  .credit-intro h2 {
+    font-size: 16px;
+  }
+  .credit-intro p {
+    font-size: 11px;
+  }
+  .credit-intro .button {
+    width: 100%;
+  }
+  .loan-card {
+    padding: 20px;
+    gap: 16px;
+  }
+  .loan-card > div {
+    flex-basis: 100%;
+  }
+  .loan-card p {
+    font-size: 10px;
+  }
+  .loan-card > .button {
+    margin-left: auto;
+    font-size: 10px;
+  }
+  .customer-ticket {
+    padding: 19px;
+  }
+  .payment-progress {
+    flex-wrap: wrap;
+    padding: 17px;
+  }
+  .payment-progress > div {
+    min-width: 180px;
+  }
+  .payment-progress > div > p {
+    font-size: 10px;
+  }
+  .payment-progress > .button {
+    margin-left: 55px;
+  }
+  .account-section-heading h2 {
+    font-size: 15px;
+  }
+  .account-section-heading .button {
+    font-size: 10px;
+  }
+  .modal-content {
+    padding: 23px;
+  }
+  .modal-heading h2 {
+    font-size: 19px;
+  }
+  .modal-heading p {
+    font-size: 10px;
+  }
+  .mode-banner {
+    font-size: 10px;
+    line-height: 1.8;
+  }
+  .info-banner {
+    font-size: 11px;
+  }
+  .toast {
+    right: 16px;
+    bottom: 16px;
+    font-size: 12px;
+  }
+  .voucher-codes {
+    grid-template-columns: 1fr;
+  }
+  .detail-list > div {
+    grid-template-columns: 90px 1fr;
+    font-size: 11px;
+  }
+}
+@media (max-width: 380px) {
+  .customer-plan-grid {
+    grid-template-columns: 1fr;
+  }
+  .customer-plan {
+    padding: 26px;
+  }
+  .customer-plan > p {
+    min-height: 0;
+  }
+  .customer-plan-price {
+    font-size: 45px;
+  }
+  .customer-plan .plan-features > span {
+    font-size: 11px;
+  }
+  .customer-plan .button {
+    font-size: 12px;
+  }
+  .popular-ribbon {
+    font-size: 8px;
+  }
+  .portal-hero h1 {
+    font-size: 35px;
+  }
+  .plan-management-grid {
+    grid-template-columns: 1fr;
+  }
+  .section-tabs {
+    gap: 11px;
+  }
+  .date-select > svg {
+    display: none;
+  }
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  .how-to-connect > div {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .step-number {
+    left: 22%;
+  }
+}
+.sidebar {
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+.sidebar-brand {
+  flex-shrink: 0;
+  height: 80px;
+}
+.workspace-selector,
+.sidebar-bottom {
+  flex-shrink: 0;
+}
+.workspace-selector {
+  margin-bottom: 18px;
+}
+.nav-item {
+  min-height: 37px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 3px;
+}
+.sidebar-bottom {
+  padding-top: 17px;
+}
+.portal-link {
+  margin: 17px 0;
+}
+.sidebar-user {
+  padding: 17px 0;
+}
+.router-actions {
+  gap: 9px;
+  flex-wrap: wrap;
+}
+.router-actions > .subtle-link {
+  margin-left: auto;
+}
+@media (max-width: 700px) {
+  .sidebar {
+    visibility: hidden;
+  }
+  .sidebar-open {
+    visibility: visible;
+  }
+  .sidebar-brand {
+    height: 76px;
+  }
+}
+/* Secondary copy remains readable on both high and low density displays. */
+.page-heading > div > p:last-child,
+.panel-heading p,
+.stat-card > p,
+.plan-management-card > p,
+.customer-plan > p,
+.portal-hero p,
+.hero-trust > span,
+.plans-section-heading > span,
+.how-to-connect article p,
+.form-help,
+.modal-heading p,
+.auth-switch,
+.secure-note,
+.customer-footer p {
+  color: #68747b;
+}
+.customer-plan .plan-features > span,
+.plan-features > span,
+.customer-header nav > a,
+.customer-header nav > button {
+  color: #5a6b76;
+}
+.cell-subtext,
+.record-count,
+.workspace-footer,
+.customer-footer > div:last-child > a,
+.account-footer > span {
+  color: #6a7780;
+}
+.form-stack input::placeholder,
+.form-stack textarea::placeholder {
+  color: #738089;
+}
+.form-stack label {
+  color: #485863;
+}
+.plan-duration {
+  color: #637885;
+}
+.customer-plan-price > span,
+.access-details small,
+.access-details p,
+.customer-account-heading > p:last-child {
+  color: #61737f;
+}
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}

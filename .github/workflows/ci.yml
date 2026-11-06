@@ -1,0 +1,60 @@
+name: Validate application and deployment
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+concurrency:
+  group: checks-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  application:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npm run check:secrets
+      - run: npm run format:check
+      - run: npm run lint
+      - run: npm test
+      - run: npm run build
+  containers:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Create isolated CI settings (no real credentials)
+        run: |
+          node --input-type=module <<'NODE'
+          import { writeFileSync } from 'node:fs';
+          import { randomBytes } from 'node:crypto';
+          const secret = () => randomBytes(32).toString('hex');
+          writeFileSync('deploy/.env', `DOMAIN=wifi.wifex.test\nMONGO_ROOT_PASSWORD=${secret()}\nMONGO_APP_PASSWORD=${secret()}\n`);
+          writeFileSync('backend/.env', `NODE_ENV=production\nAPP_ORIGIN=https://wifi.wifex.test\nPUBLIC_API_URL=https://wifi.wifex.test\nENCRYPTION_KEY=${secret()}\nADMIN_EMAIL=ci@wifex.test\nADMIN_PASSWORD=${secret()}\nPAYMENT_MODE=disabled\nROUTER_MODE=live\nALLOW_ROUTER_HTTP=false\n`);
+          NODE
+      - run: npm run check:deploy
+      - run: docker compose --env-file deploy/.env config --quiet
+      - run: docker compose --env-file deploy/.env build
+      - name: Validate Caddy configuration
+        run: docker compose --env-file deploy/.env run --rm --no-deps proxy caddy validate --config /etc/caddy/Caddyfile --adapter caddyfile
+      - run: docker compose --env-file deploy/.env up -d --wait mongo
+      - run: docker compose --env-file deploy/.env run --rm mongo-init
+      - run: docker compose --env-file deploy/.env run --rm --no-deps backend node src/seed.js
+      - run: docker compose --env-file deploy/.env up -d --wait --wait-timeout 120 backend frontend
+      - name: Verify frontend and API through the built frontend container
+        run: |
+          docker compose --env-file deploy/.env exec -T frontend node -e "Promise.all(['/', '/api/health'].map(async path=>{const r=await fetch('http://127.0.0.1:3000'+path);if(!r.ok)throw new Error(path+' returned '+r.status);console.log(path+': '+r.status)})).catch(e=>{console.error(e.message);process.exitCode=1})"
+      - name: Container logs on failure
+        if: failure()
+        run: docker compose --env-file deploy/.env logs --tail=80 mongo mongo-init backend frontend
+      - name: Remove isolated CI containers and volumes
+        if: always()
+        run: docker compose --env-file deploy/.env down --volumes

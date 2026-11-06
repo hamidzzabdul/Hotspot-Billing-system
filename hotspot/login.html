@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Connect to Wifex</title>
+    <style>
+      body {
+        font:
+          16px Arial,
+          sans-serif;
+        background: #ffffff;
+        color: #101827;
+        display: grid;
+        place-items: center;
+        min-height: 90vh;
+        padding: 20px;
+      }
+      main {
+        max-width: 380px;
+        text-align: center;
+      }
+      h1 {
+        font-weight: 500;
+        letter-spacing: -1px;
+      }
+      p {
+        color: #59677a;
+        line-height: 1.8;
+      }
+      a {
+        display: block;
+        background: #008dff;
+        color: white;
+        padding: 15px;
+        border-radius: 7px;
+        text-decoration: none;
+        margin-top: 25px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Connect to WiFex.</h1>
+      <p>Choose a plan or redeem a voucher to connect this device.</p>
+      <a id="portal" href="#">Continue to Wifex →</a>
+    </main>
+    <script>
+      // Configure these values for each router before uploading this file.
+      const portalOrigin = 'https://wifi.example.com';
+      const routerId = 'REPLACE_WITH_ROUTER_ID_FROM_WIFEX';
+      const destination = new URL('/connect', portalOrigin);
+      destination.searchParams.set('mac', '$(mac)');
+      destination.searchParams.set('router', routerId);
+      document.getElementById('portal').href = destination.toString();
+      // Keep this explicit link usable if automatic redirects are blocked by a captive browser.
+      window.location.replace(destination.toString());
+    </script>
+  </body>
+</html>

@@ -1,0 +1,8 @@
+node_modules
+**/node_modules
+.next
+**/.next
+.local
+package-lock.json
+**/next-env.d.ts
+docs/screenshots

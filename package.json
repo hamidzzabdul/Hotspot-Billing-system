@@ -1,26 +1,29 @@
 {
-  "name": "wifex-2",
-  "version": "0.1.0",
+  "name": "wifex",
+  "version": "1.0.0",
   "private": true,
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint"
-  },
-  "dependencies": {
-    "next": "16.4.5",
-    "react": "19.3.0",
-    "react-dom": "19.3.0"
+    "dev": "concurrently -n web,api -c cyan,green \"npm run dev -w frontend\" \"npm run dev -w backend\"",
+    "build": "npm run build -w frontend",
+    "lint": "npm run lint -w frontend",
+    "test": "npm test -w backend",
+    "seed": "npm run seed -w backend",
+    "format": "prettier --write frontend/src backend/src backend/tests scripts docs README.md package.json frontend/package.json backend/package.json frontend/next.config.ts docker-compose.yml deploy hotspot",
+    "format:check": "prettier --check frontend/src backend/src backend/tests scripts docs README.md package.json frontend/package.json backend/package.json frontend/next.config.ts docker-compose.yml deploy hotspot",
+    "start:local": "node scripts/start-local.mjs",
+    "callback:relay": "node scripts/callback-relay.mjs",
+    "check:secrets": "node scripts/check-secrets.mjs",
+    "check:deploy": "node scripts/check-deploy.mjs"
   },
   "devDependencies": {
-    "@tailwindcss/turbopack": "^4",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "16.4.5",
-    "tailwindcss": "^4",
-    "typescript": "^5"
+    "concurrently": "^9.2.1",
+    "prettier": "^3.9.10"
+  },
+  "engines": {
+    "node": ">=20.19.0"
   }
 }

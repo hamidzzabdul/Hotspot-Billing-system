@@ -1,0 +1,104 @@
+services:
+  mongo-key:
+    image: mongo:8.0
+    entrypoint: ['bash', '-c']
+    command:
+      [
+        'if [ ! -s /keys/keyfile ]; then head -c 756 /dev/urandom | base64 > /keys/keyfile; fi; chmod 400 /keys/keyfile; chown 999:999 /keys/keyfile',
+      ]
+    volumes: ['mongo-key:/keys']
+    networks: [database]
+    restart: 'no'
+  mongo:
+    image: mongo:8.0
+    command: ['mongod', '--replSet', 'rs0', '--bind_ip_all', '--auth', '--keyFile', '/keys/keyfile']
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD:?Set MONGO_ROOT_PASSWORD}
+    volumes: ['mongo-data:/data/db', 'mongo-key:/keys:ro']
+    networks: [database]
+    depends_on:
+      mongo-key: { condition: service_completed_successfully }
+    healthcheck:
+      # Connecting through the service name avoids declaring the temporary,
+      # localhost-only MongoDB initialization process healthy.
+      test:
+        [
+          'CMD-SHELL',
+          'mongosh --host mongo --username root --password "$${MONGO_INITDB_ROOT_PASSWORD}" --authenticationDatabase admin --quiet --eval "quit(db.adminCommand({ping:1}).ok ? 0 : 1)"',
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+    restart: unless-stopped
+  mongo-init:
+    image: mongo:8.0
+    environment:
+      MONGO_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD:?Set MONGO_ROOT_PASSWORD}
+      MONGO_APP_PASSWORD: ${MONGO_APP_PASSWORD:?Set MONGO_APP_PASSWORD}
+    volumes: ['./deploy/init-mongo.js:/init-mongo.js:ro']
+    entrypoint: ['bash', '-c']
+    command:
+      [
+        'mongosh --host mongo --username root --password "$${MONGO_ROOT_PASSWORD}" --authenticationDatabase admin --quiet /init-mongo.js',
+      ]
+    networks: [database]
+    depends_on:
+      mongo: { condition: service_healthy }
+    restart: 'no'
+  backend:
+    build: { context: ., dockerfile: deploy/Dockerfile.backend }
+    env_file: [backend/.env]
+    environment:
+      NODE_ENV: production
+      HOST: 0.0.0.0
+      PORT: 4000
+      TRUST_PROXY: loopback,uniquelocal
+      MONGODB_URI: mongodb://wifex:${MONGO_APP_PASSWORD:?Set MONGO_APP_PASSWORD}@mongo:27017/wifex?replicaSet=rs0&authSource=wifex
+      # Override laptop-specific paths from backend/.env.
+      NODE_EXTRA_CA_CERTS: ${ROUTER_CA_FILE:-}
+    volumes: ['./deploy/certs:/app/certs:ro']
+    init: true
+    stop_grace_period: 25s
+    networks: [database, web]
+    depends_on:
+      mongo-init: { condition: service_completed_successfully }
+    restart: unless-stopped
+  frontend:
+    build: { context: ., dockerfile: deploy/Dockerfile.frontend }
+    networks: [web]
+    init: true
+    healthcheck:
+      test:
+        [
+          'CMD',
+          'node',
+          '-e',
+          "fetch('http://127.0.0.1:3000/api/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))",
+        ]
+      interval: 30s
+      timeout: 5s
+      start_period: 30s
+      retries: 5
+    depends_on:
+      backend: { condition: service_healthy }
+    restart: unless-stopped
+  proxy:
+    image: caddy:2-alpine
+    environment:
+      DOMAIN: ${DOMAIN:?Set DOMAIN}
+    ports: ['80:80', '443:443', '443:443/udp']
+    volumes:
+      ['./deploy/Caddyfile:/etc/caddy/Caddyfile:ro', 'caddy-data:/data', 'caddy-config:/config']
+    networks: [web]
+    depends_on:
+      frontend: { condition: service_healthy }
+    restart: unless-stopped
+networks:
+  database: { internal: true }
+  web:
+volumes:
+  mongo-data:
+  mongo-key:
+  caddy-data:
+  caddy-config:

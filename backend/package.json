@@ -1,0 +1,25 @@
+{
+  "name": "@wifex/backend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch --env-file-if-exists=.env src/server.js",
+    "start": "node --env-file-if-exists=.env src/server.js",
+    "seed": "node --env-file-if-exists=.env src/seed.js",
+    "test": "node --test --test-concurrency=1 tests/billing.test.js tests/callback-relay.test.js tests/deployment.test.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "mongoose": "^8.19.0",
+    "bcryptjs": "^3.0.2",
+    "cookie-parser": "^1.4.7",
+    "helmet": "^8.1.0",
+    "cors": "^2.8.5",
+    "express-rate-limit": "^8.2.1",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "mongodb-memory-server": "^10.3.0"
+  }
+}

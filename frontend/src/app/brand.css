@@ -1,0 +1,445 @@
+/* WiFex: black, white, and electric blue. */
+:root {
+  --green: #007eea;
+  --green-dark: #0067c4;
+  --foreground: #172333;
+}
+::selection {
+  background: #008dff;
+  color: white;
+}
+.brand {
+  gap: 9px;
+  letter-spacing: -1.5px;
+}
+.brand-icon,
+.brand-light .brand-icon {
+  background: transparent;
+  color: #08a9ff;
+  border: 0;
+  box-shadow: none;
+}
+.brand-word {
+  font-weight: 800;
+  font-style: italic;
+}
+.brand-x {
+  color: #049fff;
+}
+.customer-site {
+  background: #ffffff;
+  color: #101827;
+  color-scheme: light;
+}
+.customer-header {
+  height: 80px;
+  margin: 0 auto;
+}
+.customer-header .brand,
+.customer-footer .brand {
+  color: #101827;
+  opacity: 1;
+}
+.customer-header nav > a,
+.customer-header nav > button {
+  color: #59677a;
+  font-size: 13px;
+}
+.customer-header nav > .active,
+.customer-header nav > a:hover,
+.customer-header nav > button:hover {
+  color: #0074cf;
+}
+.customer-main {
+  max-width: 1180px;
+}
+.portal-hero {
+  min-height: 360px;
+  padding: 52px 0;
+  grid-template-columns: 1.3fr 1fr;
+}
+.portal-kicker {
+  color: #0074cf;
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+.portal-hero h1 {
+  font-size: clamp(48px, 5.8vw, 76px);
+  line-height: 1.04;
+  font-weight: 600;
+  letter-spacing: -3px;
+  margin: 22px 0 18px;
+}
+.portal-hero h1 em {
+  color: #0087e8;
+}
+.portal-hero p {
+  color: #59677a;
+  font-size: 15px;
+}
+.hero-action {
+  margin-top: 26px;
+}
+.portal-visual {
+  height: 260px;
+}
+.wifi-disc {
+  width: 184px;
+  height: 184px;
+  color: #0099ed;
+  background: #f0f8ff;
+  border-color: #d5eaff;
+  box-shadow: none;
+}
+.visual-line {
+  border-color: #e6f2fc;
+}
+.line-a {
+  width: 244px;
+  height: 244px;
+}
+.line-b {
+  width: 310px;
+  height: 310px;
+  border-style: solid;
+  opacity: 0.5;
+}
+.customer-plans {
+  padding: 36px 0 28px;
+  scroll-margin-top: 24px;
+}
+.plans-section-heading {
+  margin-bottom: 28px;
+}
+.plans-section-heading h2 {
+  font-size: 28px;
+  color: #101827;
+}
+.customer-site .eyebrow {
+  color: #0074cf;
+}
+.customer-plan {
+  border-radius: 12px;
+  padding: 28px 22px 22px;
+  background: #ffffff;
+  transition: border-color 0.16s;
+}
+.customer-plan:hover {
+  border-color: #90bfe7;
+}
+.customer-plan.featured-plan {
+  border-color: #008dff;
+  background: #f5faff;
+  box-shadow: none;
+}
+.popular-ribbon {
+  background: #008dff;
+  color: #fff;
+  font-size: 9px;
+  font-weight: 600;
+}
+.customer-plan h3 {
+  color: #101827;
+  margin-top: 18px;
+  font-size: 18px;
+}
+.customer-plan-price {
+  color: #101827;
+  font-size: 42px;
+  font-weight: 600;
+  margin: 26px 0;
+}
+.customer-plan-price small,
+.customer-plan-price > span,
+.plan-duration {
+  color: #59677a;
+}
+.customer-site .plan-features {
+  border-color: #e2e8f0;
+  gap: 12px;
+}
+.customer-site .plan-features > span {
+  color: #526174;
+  font-size: 12px;
+}
+.customer-site .plan-features svg {
+  color: #008be7;
+}
+.customer-site .button {
+  min-height: 42px;
+  font-size: 12px;
+  border-radius: 7px;
+}
+.customer-site .button.primary,
+.customer-plan .button.primary {
+  background: #008dff;
+  border-color: #008dff;
+  color: #fff;
+  box-shadow: none;
+}
+.customer-site .button.primary:hover {
+  background: #0075d8;
+}
+.customer-site .button.secondary {
+  background: #ffffff;
+  border-color: #d6e0ea;
+  color: #16283b;
+}
+.customer-site .button.secondary:hover {
+  background: #edf6ff;
+}
+.portal-extras {
+  margin-bottom: 40px;
+  gap: 16px;
+}
+.portal-extras > button {
+  background: transparent;
+  padding: 18px;
+  border-radius: 10px;
+}
+.portal-extras > button:hover {
+  background: #f6f9fc;
+}
+.portal-extras strong {
+  color: #16283b;
+  font-size: 13px;
+}
+.portal-extras small {
+  color: #59677a;
+  font-size: 12px;
+}
+.extra-icon,
+.access-icon,
+.summary-symbol {
+  color: #008be7;
+  background: #edf7ff;
+  border-color: #d5eaff;
+}
+.customer-footer {
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+.customer-footer p,
+.customer-footer > div:last-child > a {
+  font-size: 11px;
+  color: #59677a;
+}
+.customer-site .panel,
+.customer-site .account-summary,
+.customer-site .credit-terms,
+.customer-site .payment-progress {
+  background: #ffffff;
+  border-color: #e2e8f0;
+}
+.customer-site .panel h2,
+.customer-site .panel h3,
+.account-summary strong,
+.payment-progress strong,
+.signin-prompt h3 {
+  color: #16283b;
+}
+.customer-site .muted,
+.customer-account-heading > p:last-child,
+.access-details p,
+.access-details small,
+.customer-site .cell-subtext,
+.customer-site .account-footer > span {
+  color: #59677a;
+}
+.account-tabs .active {
+  color: #0074cf;
+}
+.account-tabs .active:after {
+  background: #008dff;
+}
+.customer-site th,
+.customer-site td {
+  border-color: #e2e8f0;
+  color: #526174;
+  background: transparent;
+}
+.customer-site thead {
+  background: #f6f9fc;
+}
+.customer-site .modal {
+  background: #ffffff;
+  color: #101827;
+  border: 1px solid #d6e0ea;
+  color-scheme: light;
+}
+.customer-site .modal-heading h2 {
+  color: #101827;
+}
+.customer-site .form-stack label {
+  color: #334155;
+}
+.customer-site .form-stack input,
+.customer-site .form-stack textarea,
+.customer-site .form-stack select {
+  background: #ffffff;
+  color: #101827;
+  border-color: #d6e0ea;
+}
+.customer-site .form-help,
+.customer-site .modal-heading p,
+.customer-site .secure-note,
+.customer-site .device-note {
+  color: #59677a;
+}
+.customer-site .form-stack input::placeholder,
+.customer-site .form-stack textarea::placeholder {
+  color: #7b8799;
+}
+.customer-site .info-banner,
+.customer-site .mode-banner {
+  background: #edf6ff;
+  border-color: #cde3f8;
+  color: #24567d;
+}
+.customer-site .error-notice {
+  background: #fff1f2;
+  border-color: #fecdd3;
+  color: #a61b36;
+}
+.auth-story {
+  background: #ffffff;
+}
+.auth-story h1,
+.auth-story .brand {
+  color: #fff;
+}
+.auth-story .eyebrow,
+.auth-story .auth-illustration {
+  color: #0daaff;
+}
+.auth-story p,
+.auth-story > small {
+  color: #59677a;
+}
+.auth-story .signal-ring {
+  border-color: #d5eaff;
+}
+.auth-story .auth-illustration > span {
+  background: #0b2338;
+  border-color: #d5eaff;
+  color: #0087e8;
+}
+.auth-story .signal-dot {
+  background: #008dff;
+}
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline-color: #39b9ff;
+}
+@media (max-width: 700px) {
+  .customer-header {
+    height: auto;
+    min-height: 104px;
+    padding-top: 18px;
+    padding-bottom: 16px;
+    flex-wrap: wrap;
+  }
+  .customer-header nav {
+    order: 3;
+    width: 100%;
+    margin: 0;
+    justify-content: center;
+    gap: 28px;
+  }
+  .portal-hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding: 40px 0 32px;
+  }
+  .portal-visual {
+    display: none;
+  }
+  .portal-hero h1 {
+    font-size: 52px;
+    letter-spacing: -2px;
+  }
+  .customer-plan-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px 12px;
+  }
+  .customer-plan {
+    padding: 24px 16px 18px;
+  }
+  .customer-plan-price {
+    font-size: 34px;
+    flex-wrap: wrap;
+  }
+  .customer-plan-price > span {
+    width: 100%;
+    margin: 6px 0 0;
+  }
+  .portal-extras {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .customer-footer {
+    align-items: flex-start;
+  }
+}
+@media (max-width: 380px) {
+  .customer-plan-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Dark brand panel keeps the logo's original contrast on sign in. */
+.auth-story {
+  background: #070a0f;
+}
+.auth-story h1,
+.auth-story .brand {
+  color: #fff;
+}
+.auth-story p,
+.auth-story > small {
+  color: #a8b4c7;
+}
+.auth-story .eyebrow {
+  color: #35b5ff;
+}
+.auth-story .signal-ring {
+  border-color: #153957;
+}
+.auth-story .auth-illustration > span {
+  background: #0b2338;
+  color: #11acff;
+}
+
+/* Customer entry shows only the brand and available plans. */
+.customer-site .plans-section-heading h1 {
+  color: #101827;
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 600;
+  letter-spacing: -1.2px;
+}
+.customer-site .customer-plans {
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+@media (max-width: 700px) {
+  .customer-header {
+    min-height: 76px;
+  }
+  .customer-site .customer-plans {
+    padding-top: 32px;
+  }
+}
+
+@media (max-width: 500px) {
+  .plans-section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .payment-progress {
+    flex-wrap: wrap;
+  }
+}
